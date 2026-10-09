@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f6ed">
+  <title>EcoQuest AI — Explore the living world</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">✳</span>
+      ecoquest<span class="brand-ai">AI</span>
+    </a>
+    <nav>
+      <a href="#explore">Explore</a>
+      <a href="#quests">Quests</a>
+      <a href="#journal">My journal</a>
+    </nav>
+    <div class="online-status">
+      <span class="status-dot"></span> Nature awaits
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR LITTLE ADVENTURE STARTS HERE</span>
+        <h1>Less scrolling.<br>More <span>wonder.</span></h1>
+        <p>
+          Step outside, discover something new, and let AI
+          help you see the natural world differently.
+        </p>
+        <a href="#quests" class="primary-btn">
+          Start an adventure <span>↗</span>
+        </a>
+        <div class="hero-note">
+          <span>🌱</span> Small steps. Real-world discoveries.
+        </div>
+      </div>
+      <div class="hero-art">
+        <img
+          src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1100&q=85"
+          alt="Sunlight filtering through a green forest">
+        <div class="floating-card">
+          <span class="floating-icon">🌿</span>
+          <div>
+            <strong>Your world is alive</strong>
+            <p>Go outside and find out why.</p>
+          </div>
+        </div>
+        <span class="art-label">FIELD NOTES · VOL. 01</span>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-icon">🌞</span>
+        <div><strong id="minutes">0 min</strong><small>Outside today</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🍃</span>
+        <div><strong id="discoveries">0</strong><small>Discoveries saved</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🔥</span>
+        <div><strong id="streak">0 days</strong><small>Adventure streak</small></div>
+      </div>
+    </section>
+
+    <section id="quests" class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR DAILY DOSE OF OUTDOORS</span>
+          <h2>Today's little quests</h2>
+        </div>
+        <span class="pill">Pick your pace</span>
+      </div>
+
+      <div class="quest-grid">
+        <article class="quest-card quest-featured">
+          <div class="quest-visual leaves">🌿</div>
+          <div class="quest-body">
+            <span class="quest-type">01 · OBSERVE</span>
+            <h3>Meet a leaf</h3>
+            <p>Find three different leaf shapes. Notice their edges, colors, and patterns.</p>
+            <div class="quest-footer">
+              <span>◷ 10 min</span>
+              <button class="complete-btn" data-quest="leaf">Let's do it ↗</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="quest-card">
+          <div class="quest-visual birds">🐦</div>
+          <div class="quest-body">
+            <span class="quest-type">02 · LISTEN</span>
+            <h3>Birdsong break</h3>
+            <p>Spend five quiet minutes outdoors listening for bird calls.</p>
+            <div class="quest-footer">
+              <span>◷ 5 min</span>
+              <button class="complete-btn" data-quest="bird">Let's do it ↗</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="quest-card">
+          <div class="quest-visual sky">☁️</div>
+          <div class="quest-body">
+            <span class="quest-type">03 · SLOW DOWN</span>
+            <h3>Look up</h3>
+            <p>Observe the clouds and find one shape that makes you smile.</p>
+            <div class="quest-footer">
+              <span>◷ 5 min</span>
+              <button class="complete-btn" data-quest="sky">Let's do it ↗</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="explore" class="section scanner-section">
+      <div class="scanner-copy">
+        <span class="eyebrow">MEET YOUR OPEN AI FIELD GUIDE</span>
+        <h2>Curiosity looks<br>good on you.</h2>
+        <p>
+          Found something interesting outside? Upload a photo
+          and let an open-weight AI model analyze what's in it.
+        </p>
+        <div class="privacy-note">
+          <span>🔒</span>
+          <div>
+            <strong>Your photo, your device</strong>
+            <p>Image inference runs in your browser. The AI model
+            downloads from Hugging Face when first needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scanner-card">
+        <div class="scanner-top">
+          <div><span class="scanner-dot"></span> FIELD SCANNER</div>
+          <span class="pill">OPEN AI</span>
+        </div>
+
+        <label for="imageInput" class="upload-area" id="uploadArea">
+          <img id="preview" alt="Your uploaded nature discovery">
+          <div id="uploadPlaceholder">
+            <span class="upload-icon">↑</span>
+            <strong>Drop your discovery here</strong>
+            <span>or click to choose a photo</span>
+            <small>JPG, PNG, WEBP</small>
+          </div>
+        </label>
+        <input type="file" id="imageInput" accept="image/*" hidden>
+
+        <button id="analyzeBtn" class="primary-btn full-btn" disabled>
+          Analyze with open AI <span>✳</span>
+        </button>
+
+        <div id="aiStatus" class="ai-status" role="status" aria-live="polite">
+          Your next discovery is waiting.
+        </div>
+
+        <div id="results" class="results" hidden>
+          <div class="result-heading">
+            <span>MODEL PREDICTIONS</span>
+            <span class="result-leaf">✳</span>
+          </div>
+          <div id="predictionList"></div>
+          <p class="result-disclaimer">
+            Predictions are estimates, not verified species identifications.
+          </p>
+          <button id="saveDiscovery" class="secondary-btn">
+            Save to my journal +
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="outside-banner">
+      <span class="banner-emoji">🌳</span>
+      <div>
+        <span class="eyebrow">A FRIENDLY REMINDER</span>
+        <h2>The best screen time is less screen time.</h2>
+        <p>Take a quest outside. Come back with a story.</p>
+      </div>
+      <button id="startTimer" class="timer-btn">Start 10-min break ↗</button>
+    </section>
+
+    <section id="journal" class="section journal-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR LITTLE COLLECTION</span>
+          <h2>Nature journal</h2>
+        </div>
+        <span class="pill" id="journalCount">0 entries</span>
+      </div>
+      <div id="journalList" class="journal-grid">
+        <div class="empty-state">
+          <span>📓</span>
+          <h3>Your story starts outside</h3>
+          <p>Complete a quest or save your first discovery to see it here.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a class="brand" href="#"><span class="brand-icon">✳</span> ecoquest<span class="brand-ai">AI</span></a>
+      <p>Built with curiosity and open-source AI. 🌱</p>
+      <span>Go gently. Leave no trace.</span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
